@@ -1,0 +1,121 @@
+<!-- PAGE 3: Pesan Romantis dari Kamu Untuk Amirotul 💜-->
+<!-- Simpan sebagai halaman3.html -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pesan Cinta 💌</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #9333ea;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      color: #fff;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .love-container {
+      background: #fce7f3;
+      border-radius: 50% 50% 50% 50%;
+      padding: 40px;
+      max-width: 600px;
+      text-align: center;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+      position: relative;
+      z-index: 10;
+      animation: popIn 1.5s ease-in-out;
+      color: #6b21a8;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 1.2em;
+      line-height: 1.6em;
+    }
+    .butterfly {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-image: url('https://cdn-icons-png.flaticon.com/512/616/616554.png');
+      background-size: cover;
+      animation: flutter 6s infinite ease-in-out;
+    }
+    @keyframes flutter {
+      0% { transform: translateY(0) translateX(0) rotate(0deg); }
+      50% { transform: translateY(-50px) translateX(30px) rotate(30deg); }
+      100% { transform: translateY(0) translateX(0) rotate(0deg); }
+    }
+    @keyframes popIn {
+      from { transform: scale(0); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .falling-heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png');
+      background-size: cover;
+      animation: fall 5s linear infinite;
+      opacity: 0.9;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-100px); opacity: 0; }
+      100% { transform: translateY(100vh); opacity: 1; }
+    }
+  </style>
+</head>
+<body onload="startHearts(); playLoveSong();">
+  <div class="love-container">
+    <h1>💖 Dari Aku, Untuk Kamu 💖</h1>
+    <p>Sayang, makasih ya udah lahir di dunia ini dan jadi cahaya paling terang buat hidup aku 🌟</p>
+    <p>Kamu itu alasan aku semangat setiap hari. Meski LDR, cinta aku gak pernah berkurang sedikit pun.</p>
+    <p>Happy birthday yaa, Amirotul Ma’rufah. Kamu adalah jawaban dari semua doa aku 💜</p>
+    <p>I love you more than all the stars in the sky 💫</p>
+  </div>
+  <div class="butterfly" style="top: 50px; left: 20px;"></div>
+  <div class="butterfly" style="top: 100px; right: 30px;"></div>
+  <audio id="myAudio" loop>
+    <source src="lagu.mp3" type="audio/mpeg" />
+    Browser kamu tidak mendukung audio.
+  </audio>
+
+  <button id="playButton">Nyalain Dongg musik nya sayaaang 🎵</button>
+  <script>
+    const audio = document.getElementById("myAudio");
+    const playButton = document.getElementById("playButton");
+
+    playButton.addEventListener("click", () => {
+      if (audio.paused) {
+        audio.play();
+        playButton.textContent = "Pause Musik ⏸️";
+      } else {
+        audio.pause();
+        playButton.textContent = "Play Musik 🎵";
+      }
+    });
+  </script>
+  <script>
+    function playLoveSong() {
+      document.getElementById('loveMusic').play();
+    }
+
+    function startHearts() {
+      for (let i = 0; i < 50; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'falling-heart';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = (3 + Math.random() * 5) + 's';
+        heart.style.top = '-' + (Math.random() * 100) + 'px';
+        document.body.appendChild(heart);
+      }
+    }
+  </script>
+</body>
+</html>

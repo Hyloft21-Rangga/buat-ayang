@@ -1,0 +1,121 @@
+<!-- PAGE 1: Game Pertanyaan Interaktif -->
+<!-- Simpan sebagai halaman1.html -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tebakan Cinta 💌</title>
+  <style>
+    body {
+      background: #f3e8ff;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      color: #6b21a8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    .game-box {
+      background: #fff0f9;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 400px;
+    }
+    input, button {
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      margin-top: 10px;
+      font-size: 1em;
+    }
+    button {
+      background: #c084fc;
+      color: white;
+      cursor: pointer;
+    }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="game-box">
+    <!-- Container 1 -->
+    <div id="container1">
+      <h2>Siapa nama pacarku? 😍</h2>
+      <input type="text" id="nama" placeholder="Tulis di sini...">
+      <button onclick="cekNama()">Jawab</button>
+    </div>
+
+    <!-- Container 2 -->
+    <div id="container2" class="hidden">
+      <h2>Berapa besar cintamu ke aku? (1-100) ❤️</h2>
+      <input type="number" id="rating" min="1" max="100">
+      <button onclick="kePertanyaan1()">Lanjuut</button>
+    </div>
+
+    <!-- Container 3 -->
+    <div id="container3" class="hidden">
+      <h2>Bener nih? 🤔</h2>
+      <p>Jawabannya iya</p>
+      <button onclick="kePertanyaan2()">Iya</button>
+      <button onclick="alert('Hmmmm... Yakin nggak mau lanjut? 😢')">Engga</button>
+    </div>
+
+    <!-- Container 4 -->
+    <div id="container4" class="hidden">
+      <h2>Kamu sayang aku kan? 😚</h2>
+      <p>Mau nemenin aku terus?</p>
+      <button onclick="kePertanyaan5()">Iya</button>
+      <button onclick="alert('Eits nggak boleh boong 😝')">Engga</button>
+    </div>
+
+    <!-- Container 5 -->
+    <div id="container5" class="hidden">
+      <h2>Oke deh sayang 😍</h2>
+      <p>Lanjuut yook ke kejutan berikutnya 💖</p>
+      <button onclick="lanjut()">Ayoook 💜</button>
+    </div>
+  </div>
+
+  <script>
+    function cekNama() {
+      const nama = document.getElementById('nama').value.toLowerCase();
+      if(nama === "rangga surya fermana") {
+        document.getElementById('container1').classList.add('hidden');
+        document.getElementById('container2').classList.remove('hidden');
+      } else {
+        alert('Yah salah 😜 coba lagi ya sayangku!');
+      }
+    }
+
+    function kePertanyaan1() {
+      const rating = document.getElementById('rating').value;
+      if(rating >= 1 && rating <= 100) {
+        document.getElementById('container2').classList.add('hidden');
+        document.getElementById('container3').classList.remove('hidden');
+      } else {
+        alert('Isi dong dari 1 sampai 100 💌');
+      }
+    }
+
+    function kePertanyaan2() {
+      document.getElementById('container3').classList.add('hidden');
+      document.getElementById('container4').classList.remove('hidden');
+    }
+
+    function kePertanyaan5() {
+      document.getElementById('container4').classList.add('hidden');
+      document.getElementById('container5').classList.remove('hidden');
+    }
+
+    function lanjut() {
+      window.location.href = 'halaman2.html';
+    }
+  </script>
+</body>
+</html>

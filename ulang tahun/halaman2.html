@@ -1,0 +1,122 @@
+<!-- PAGE 2: Halaman Surprise Aesthetic dengan Quotes & Musik -->
+<!-- Simpan sebagai halaman2.html -->
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Surprise Untuk Sayang 💜</title>
+    <style>
+      body {
+        background: #7e22ce;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+        color: #ffffff;
+        padding: 30px;
+        overflow: hidden;
+      }
+      .surprise-box {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+        margin: 0 auto;
+        max-width: 700px;
+        position: relative;
+        z-index: 10;
+        color: #6b21a8;
+        animation: fadeIn 2s ease-in-out;
+      }
+      h1 {
+        font-size: 2.5em;
+      }
+      p {
+        font-size: 1.2em;
+      }
+      audio {
+        display: none;
+      }
+      @keyframes turun {
+        0% {
+          transform: translateY(-150px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(100vh);
+          opacity: 1;
+        }
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .balloon {
+        width: 40px;
+        height: 60px;
+        background: radial-gradient(circle at 30% 30%, #f472b6, #ec4899);
+        border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        position: absolute;
+        animation: turun 10s linear infinite;
+        z-index: 2;
+      }
+    </style>
+  </head>
+  <body onload="generateBalloons()">
+    <div class="surprise-box">
+      <h1>🎉 Happy Birthday, Sayang! 🎂</h1>
+      <p>“Distance means so little when someone means so much.” – Tom McNeal</p>
+      <p>
+        Walau kita jauh, hatiku selalu deket sama kamu. Cinta ini bukan hanya
+        kuat, tapi tahan banting! 😘
+      </p>
+      <p>
+        Aku selalu percaya... hubungan yang langgeng itu dibangun dari cinta
+        yang sabar, tawa yang tulus, dan kamu, yang nggak pernah berhenti jadi
+        alasan aku tersenyum 💜
+      </p>
+      <p>Klik untuk lanjut ya sayangku 🥰</p>
+      <button onclick="window.location.href='halaman3.html'">
+        Lanjut ke Pesan Romantis 👉
+      </button>
+    </div>
+    <audio id="myAudio" loop>
+      <source src="lagu.mp3" type="audio/mpeg" />
+      Browser kamu tidak mendukung audio.
+    </audio>
+
+    <button id="playButton">Nyalain Dongg musik nya sayaaang 🎵</button>
+    <script>
+      const audio = document.getElementById("myAudio");
+      const playButton = document.getElementById("playButton");
+
+      playButton.addEventListener("click", () => {
+        if (audio.paused) {
+          audio.play();
+          playButton.textContent = "Pause Musik ⏸️";
+        } else {
+          audio.pause();
+          playButton.textContent = "Play Musik 🎵";
+        }
+      });
+    </script>
+
+    <script>
+      function generateBalloons() {
+        for (let i = 0; i < 30; i++) {
+          const balloon = document.createElement("div");
+          balloon.className = "balloon";
+          balloon.style.left = Math.random() * 100 + "vw";
+          balloon.style.animationDuration = 5 + Math.random() * 5 + "s";
+          balloon.style.background = `hsl(${Math.random() * 360}, 70%, 75%)`;
+          document.body.appendChild(balloon);
+        }
+      }
+    </script>
+  </body>
+</html>
